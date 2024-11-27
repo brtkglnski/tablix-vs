@@ -1,6 +1,6 @@
 <h1>Projekt semestralny INT (Programowanie Frontendowej Aplikacji Internetowej)</h1><br>
 <b>TablixVS</b> to interaktywna gra, która pozwala użytkownikom wybierać tabele i porównywać wartości ich elementów w celu odgadnięcia, który z nich ma większą wartość.
-Import tabel zarówno z API Spotify, jak i dodawanie ich ręcznie.
+Import tabel zarówno z API Spotify, jak i dodawanie ich ręcznie.<br>
 
 Funkcjonalności:
 <ul>
