@@ -1,4 +1,4 @@
-Projekt semestralny INT (Programowanie Frontendowej Aplikacji Internetowej)
+Projekt semestralny INT (Programowanie Frontendowej Aplikacji Internetowej)<br>
 Tablix to interaktywna gra, która pozwala użytkownikom wybierać tabele i porównywać wartości ich elementów w celu odgadnięcia, który z nich ma większą wartość.
 Import tabel zarówno z API Spotify, jak i dodawanie ich ręcznie.
 
