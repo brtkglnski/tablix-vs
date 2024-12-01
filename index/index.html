@@ -7,29 +7,33 @@
     <link rel="stylesheet" href="../Style/style.css">
 </head>
 <body>
-    <div class="selectedPopUp">
-        <div class="tableActionMenu">
-            
+    <div class="selectedPopUp" id="selectedPopUp">
+        <div class="tableActionMenu" id="tableActionMenu">
+            <svg class="okladkaOpcji" id="svg"><use href="../Zasoby/SVG/icons.svg#database-icon"></use></svg>
+            <p class="actionMenuTitle" id="actionMenuTitle">tytul</p>
+            <button action="" class="actionMenuAbsoluteButton delete"><svg><use href="../Zasoby/SVG/icons.svg#trashcan-icon"></svg></button>
+                <button class="actionMenuAbsoluteButton exit"><svg><use href="../Zasoby/SVG/icons.svg#close-icon"></svg></button>
+            <div class="actionMenuButtons"><button class="primaryButton">Graj</button><button class="secondaryButton">Edytuj</button></div>
         </div>
     </div>
     <header>
     <img src="../Zasoby/Obrazy/tablix_logo.png">
     </header>
     <div class="poleOpcji">
-        <div class="Opcja custom" onClick="menuOpcji(); return false;">
-            <svg class="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#database-icon"></svg>  <p class="opisOpcji">Tabela #1</p>
+        <div class="Opcja custom" id="Opcja">
+            <svg class="okladkaOpcji" id="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#database-icon"></svg>  <p id="opisOpcji" class="opisOpcji">Tabela #1</p>
         </div>
-        <div class="Opcja custom">
-            <svg class="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#database-icon"></svg>  <p class="opisOpcji">Tabela #2</p>
+        <div class="Opcja custom"  id="Opcja">
+            <svg class="okladkaOpcji" id="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#database-icon"></svg>  <p id="opisOpcji" class="opisOpcji">Tabela #2</p>
         </div>
-        <div class="Opcja spotify">
-            <svg class="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#spotify-icon"></svg><p class="opisOpcji">Playlista Spotify</p>
+        <div class="Opcja spotify"  id="Opcja">
+            <svg class="okladkaOpcji" id="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#spotify-icon"></svg><p id="opisOpcji" class="opisOpcji">Playlista Spotify</p>
         </div>
-        <div class="Opcja spotify">
-            <svg class="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#spotify-icon"></svg><p class="opisOpcji">Playlista Spotify</p>
+        <div class="Opcja spotify"  id="Opcja">
+            <svg class="okladkaOpcji" id="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#spotify-icon"></svg><p id="opisOpcji" class="opisOpcji">Playlista Spotify</p>
         </div>
-        <div class="Opcja dodaj">
-            <svg class="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#plus-icon"></svg><p class="opisOpcji">Dodaj tabelę...</p>
+        <div class="Opcja dodaj"  id="Opcja">
+            <svg class="okladkaOpcji" id="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#plus-icon"></svg><p id="opisOpcji" class="opisOpcji">Dodaj tabelę...</p>
         </div>
     </div>
     <footer>

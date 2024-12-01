@@ -1,7 +1,9 @@
 :root{
     --bg-color: #fafffd;
     --text-color: #0d1821;
+    --text-color-alt: #fafffd;
     --primary-color: #6c91c1;
+    --primary-color-alt: #5a7ca9;
     --secondary-color: #1db954;
 }
 
@@ -18,7 +20,7 @@ body{
 /* ########################### */
 
 header{
-    height: 10vh;
+    height: 8vh;
     display:flex; 
     flex-direction: row;
     justify-content: space-evenly;
@@ -31,32 +33,36 @@ header{
 .poleOpcji{
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    gap: 8%;
+    gap: 4%;
     height:100vh;
+    margin: 0 auto;
+    width:60%;
     justify-content: center;
 }
 .Opcja{
     aspect-ratio: 12/16;
-    height: 25vh;
-    border-radius: 24px;
+    height: 30vh;
+    border-radius: 12px;
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding:8px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    box-shadow:0px -5px 20px 0px var(--text-color) inset, 0px 7.5px 20px 0px var(--text-color);
 }
 .Opcja:hover{
     transform: translateY(-5%);
 }
 .okladkaOpcji{
-    background-color: var(--bg-color);
-    width:100%;
-    height:auto;
-    border-radius: 16px;
+    width:75%;
+    aspect-ratio: 1/1;
 }
 .custom{
     background-color: var(--primary-color);
+   
+     
 }
 .spotify{
     background-color: var(--secondary-color);
@@ -101,16 +107,24 @@ img{
     height: 1em; 
     vertical-align: middle; 
 }
+svg{
+    width: 100%; 
+    height: auto; 
+    aspect-ratio: 1/1;
+    vertical-align: middle; 
+}
 
 /* ########################### */
 
 .selectedPopUp {
     display:none;
-    visibility: hidden;
-    position: absolute;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
-    width: 100vw;
-    background-color: black;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 
 }
 
@@ -120,6 +134,61 @@ img{
     top: 50%;            
     left: 50%;      
     transform: translate(-50%, -50%); 
-    width: 300px;       
-    height: 200px;         
+    height: 60vh;       
+    aspect-ratio: 12/16;         
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:8px;
+    border-radius: 18px;
+}
+.actionMenuTitle{
+    font-size:1.75em;
+}
+.actionMenuAbsoluteButton{
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    border: none;
+    width: 40px;
+    height: 40px;
+    fill: var(--text-color);
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+    transition: fill 0.3s ease;
+
+}
+.delete{
+    top: 8%;            
+    left: 90%;      
+}
+.exit{
+    top: 8%;            
+    left: 10%;      
+}
+.actionMenuAbsoluteButton:hover{
+    fill:rgb(107, 52, 52);
+}
+
+.actionMenuButtons{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.primaryButton{
+border: none;
+color: rgb(255, 255, 255);
+background-color: var(--text-color);
+width:45%;
+border-radius: 0.5em;
+padding: 5% 5% 5% 5%;
+}
+.secondaryButton{
+    border: 3px solid var(--text-color);
+    border-radius: 0.5em;
+color: var(--text-color);
+background-color: rgba(0,0,0,0);
+width:45%;
+padding: 5% 5% 5% 5%;
 }
