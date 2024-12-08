@@ -66,12 +66,12 @@ main{
     width:75%;
     aspect-ratio: 1/1;
 }
-.custom{
+.Custom{
     background-color: var(--primary-color);
    
      
 }
-.spotify{
+.Spotify{
     background-color: var(--secondary-color);
 }
 .dodaj{
