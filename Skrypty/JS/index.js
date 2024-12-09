@@ -86,60 +86,43 @@ document.querySelectorAll('.iconOption').forEach(option => {
     option.addEventListener('click', selectTableIcon);
 });
 
-document.querySelectorAll('button[type="submit"]').forEach(button => {
+document.querySelectorAll('.submitting').forEach(button => {
     button.addEventListener('click', (event) => {
         // Prevent the default form submission
         event.preventDefault();
 
-        // Set input values
         const tableInput = document.getElementById('tableInput');
         const iconInput = document.getElementById('iconInput');
         const sourceInput = document.getElementById('sourceInput');
         const tableNameInput = document.getElementById('addTableName');
 
-        // Set values
         tableInput.value = tableNameInput.value;
         sourceInput.value = button.value;
 
-        // Log values for debugging
         console.log('Table:', tableInput.value);
         console.log('Icon:', iconInput.value);
         console.log('Source:', sourceInput.value);
         
-        // Validate fields
         if (!tableInput.value || !iconInput.value || !sourceInput.value) {
             alert('Please fill all required fields!');
             return;
         }
 
-        // If all validations pass, submit the form
         document.getElementById('tableForm').submit();
     });
 });
 
-// document.getElementById('tableForm').onsubmit = function(event) {
-//     // Get references to input elements
-//     const tableInput = document.getElementById('tableInput');
-//     const iconInput = document.getElementById('iconInput');
-//     const sourceInput = document.getElementById('sourceInput');
-//     const tableNameInput = document.getElementById('addTableName');
+function deleteTable(button){
+    button.preventDefault();
+    var databaseTitle = document.getElementById('actionMenuTitle').innerText;
+    var deletionInput = document.getElementById('deletionInput');
+    deletionInput.value = databaseTitle;
+    if(!deletionInput.value){
+        alert('Deletion failed');
+    }
+    document.getElementById('deletionForm').submit();
+}
+document.querySelectorAll('.delete').forEach(button => {
+    button.addEventListener('click', deleteTable);
+})
 
-//     // Set values
-//     tableInput.value = tableNameInput.value;
-//     sourceInput.value = event.submitter.value;
-
-//     // Log values for debugging
-//     console.log('Table:', tableInput.value);
-//     console.log('Icon:', iconInput.value);
-//     console.log('Source:', sourceInput.value);
-    
-//     // Validate fields
-//     if (!tableInput.value || !iconInput.value || !sourceInput.value) {
-//         alert('Please fill all required fields!');
-//         event.preventDefault(); // Stop the form from submitting
-//         return false;
-//     }
-
-//     // If all validations pass, form will submit normally
-//     return true;
-// };

@@ -37,7 +37,12 @@ if (mysqli_stmt_execute($statement)) {
 } else {
     echo "Error inserting metadata: " . mysqli_error($connection);
 }
-
+if (!empty($_SERVER['HTTP_REFERER'])) {
+    header("Location: " . $_SERVER['HTTP_REFERER']);
+    exit();
+} else {
+    echo "Form processed successfully. No referrer available to redirect.";
+}
 ?>
 
 

@@ -1,0 +1,2 @@
+1. Zrób dodawanie jako transakcja
+2. Zapobiegaj tworzeniu duplikatów w metadanych
