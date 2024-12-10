@@ -1,4 +1,3 @@
-
 <?php
 require 'config.php';
 
@@ -14,11 +13,17 @@ if (empty($source)) $missing[] = "source";
 
 if ($missing) die("The following fields are required: " . implode(", ", $missing));
 
-$query = "INSERT INTO metadata (table_name, icon_id, source) VALUES (?,?,?)";
-$statement = $connection->prepare($query);
-$statement->bind_param("sss", $table_name, $icon_id, $source);
+mysqli_begin_transaction($connection);
 
-if (mysqli_stmt_execute($statement)) {
+try {
+    $query = "INSERT INTO metadata (table_name, icon_id, source) VALUES (?,?,?)";
+    $statement = $connection->prepare($query);
+    $statement->bind_param("sss", $table_name, $icon_id, $source);
+
+    if (!$statement->execute()) {
+        throw new Exception("Error inserting metadata: " . mysqli_error($connection));
+    }
+
     $metadata_id = mysqli_insert_id($connection); 
 
     $create_table_query = "CREATE TABLE `$table_name` (
@@ -29,14 +34,18 @@ if (mysqli_stmt_execute($statement)) {
         FOREIGN KEY (metadata_id) REFERENCES metadata(id) ON DELETE CASCADE
     )";
 
-    if (mysqli_query($connection, $create_table_query)) {
-        echo "Metadata added and child table `$table_name` created successfully.";
-    } else {
-        echo "Error creating child table: " . mysqli_error($connection);
+    if (!mysqli_query($connection, $create_table_query)) {
+        throw new Exception("Error creating child table: " . mysqli_error($connection));
     }
-} else {
-    echo "Error inserting metadata: " . mysqli_error($connection);
+
+    // Commit transaction
+    mysqli_commit($connection);
+    echo "Metadata added and child table `$table_name` created successfully.";
+} catch (Exception $e) {
+    mysqli_rollback($connection);
+    echo "Transaction failed: " . $e->getMessage();
 }
+
 if (!empty($_SERVER['HTTP_REFERER'])) {
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
@@ -44,6 +53,3 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
     echo "Form processed successfully. No referrer available to redirect.";
 }
 ?>
-
-
-
