@@ -31,6 +31,7 @@ try {
         metadata_id INT NOT NULL,
         name VARCHAR(80) NOT NULL,
         data INT NOT NULL,
+        image_data LONGBLOB DEFAULT NULL,
         FOREIGN KEY (metadata_id) REFERENCES metadata(id) ON DELETE CASCADE
     )";
 

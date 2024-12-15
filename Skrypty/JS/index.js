@@ -33,8 +33,26 @@ function menuOpcji(event) {
 
         tableActionMenu.style.display = 'flex';  
         tableCreationMenu.style.display = 'none';
+
+        if (primaryButton) {
+            primaryButton.onclick = function() {
+                const tableName = document.getElementById('actionMenuTitle').innerText;
+                const url = `../Podstrony/comparison.php?table_name=${tableName}`;
+                window.location.href = url;  // Redirect to the URL
+            };
+        }
+    
+        const secondaryButton = document.querySelector('.secondaryButton');
+        if (secondaryButton) {
+            secondaryButton.onclick = function() {
+                const tableName = document.getElementById('actionMenuTitle').innerText;
+                const url = `../Podstrony/modify-table.php?table_name=${tableName}`;
+                window.location.href = url; 
+            };
+        }
     }
-}
+    }
+    
 document.querySelectorAll('.Opcja').forEach(card => {
     card.addEventListener('click', menuOpcji);
 });

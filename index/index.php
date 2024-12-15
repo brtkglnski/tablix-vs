@@ -27,7 +27,7 @@ if(!$connection){
             <p class="actionMenuTitle" id="actionMenuTitle">tytul</p>
             <button action="" class="actionMenuAbsoluteButton delete"><svg><use href="../Zasoby/SVG/icons.svg#trashcan-icon"></svg></button>
                 <button class="actionMenuAbsoluteButton exit"><svg><use href="../Zasoby/SVG/icons.svg#close-icon"></svg></button>
-            <div class="actionMenuButtons"><button class="primaryButton">Graj</button><button class="secondaryButton">Edytuj</button></div>
+            <div class="actionMenuButtons"><button  onclick="window.location.href='../Podstrony/comparison.php?table_name=';" class="primaryButton">Graj</button><button  onclick="window.location.href='../Podstrony/modify-table.php?table_name=';" class="secondaryButton">Edytuj</button></div>
             <form id="deletionForm" action="../Skrypty/PHP/table_deletion.php" method="POST">
             <input type="hidden" name="deletion_name" id="deletionInput" value="">
             </form>
