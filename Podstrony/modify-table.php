@@ -25,7 +25,11 @@ if(!$connection){
         </header>
         <main class="inputLayout"> 
         <div class="formBackground">
-        <form  class="addEntryForm" action="your-server-side-script.php" method="POST" enctype="multipart/form-data">
+        <!-- <form  class="addEntryForm" action="your-server-side-script.php" method="POST" enctype="multipart/form-data">
+        <div>
+        <label for="image_data">Grafika:</label><br>
+        <input class="imageInput" type="file" id="image_data" name="image_data" accept="image/*"><br><br>
+        </div>
             <div>
         <label for="name">Nazwa:</label><br>
         <input class="inputField" type="text" id="name" name="name" maxlength="80" required><br><br>
@@ -34,23 +38,36 @@ if(!$connection){
         <label for="data">Wartość:</label><br>
         <input class="inputField" type="number" id="data" name="data" required><br><br>
         </div>
-        <div>
-        <label for="image_data">Grafika:</label><br>
-        <input class="imageInput" type="file" id="image_data" name="image_data" accept="image/*"><br><br>
-        </div>
+
         <button type="submit" class="addEntryButton">Dodaj</button>
-    </form>
+    </form> -->
 
     <table border="1">
     <table class="dataTable">
     <thead>
         <tr class="tableHeader">
-            <th class="tableHeaderCell">ID</th>
+            <th class="tableHeaderCell w10">Grafika</th>
             <th class="tableHeaderCell">Nazwa</th>
             <th class="tableHeaderCell">Wartość</th>
         </tr>
     </thead>
     <tbody>
+    <tr class="tableRow">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <td class="tableCell">
+                            <input class="imageInput" type="file" id="image_data" name="image_data" accept="image/*">
+                        </td>
+                        <td class="tableCell">
+                            <input class="inputField" type="text" id="name" name="name" maxlength="80" required>
+                        </td>
+                        <td class="tableCell">
+                            <input class="inputField" type="number" id="data" name="data" required>
+                        </td>
+                        <td class="tableCell">
+                            <button type="submit" class="addEntryButton">Dodaj</button>
+                        </td>
+                    </form>
+                </tr>
         <?php
         if (isset($_GET['table_name'])) {
             $table_name = $_GET['table_name'];
@@ -61,7 +78,7 @@ if(!$connection){
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr class='tableRow'>";
-                    echo "<td class='tableCell'>" . $row["id"] . "</td>";
+                    echo "<td class='tableCell'>" . "?" . "</td>";
                     echo "<td class='tableCell'>" . $row["name"] . "</td>";
                     echo "<td class='tableCell'>" . $row["data"] . "</td>";
                     echo "</tr>";
