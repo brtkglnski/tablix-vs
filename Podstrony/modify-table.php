@@ -25,38 +25,26 @@ if(!$connection){
         </header>
         <main class="inputLayout"> 
         <div class="formBackground">
-        <!-- <form  class="addEntryForm" action="your-server-side-script.php" method="POST" enctype="multipart/form-data">
-        <div>
-        <label for="image_data">Grafika:</label><br>
-        <input class="imageInput" type="file" id="image_data" name="image_data" accept="image/*"><br><br>
-        </div>
-            <div>
-        <label for="name">Nazwa:</label><br>
-        <input class="inputField" type="text" id="name" name="name" maxlength="80" required><br><br>
-</div>
-<div>
-        <label for="data">Wartość:</label><br>
-        <input class="inputField" type="number" id="data" name="data" required><br><br>
-        </div>
-
-        <button type="submit" class="addEntryButton">Dodaj</button>
-    </form> -->
 
     <table border="1">
+            <h1 id="databaseTitle">        
+            <?php
+             if (isset($_GET['table_name'])) {
+            $table_name = $_GET['table_name'];
+            echo $table_name;
+             }
+            ?>
+            </h1>
     <table class="dataTable">
     <thead>
         <tr class="tableHeader">
-            <th class="tableHeaderCell w10">Grafika</th>
             <th class="tableHeaderCell">Nazwa</th>
             <th class="tableHeaderCell">Wartość</th>
         </tr>
     </thead>
     <tbody>
     <tr class="tableRow">
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        <td class="tableCell">
-                            <input class="imageInput" type="file" id="image_data" name="image_data" accept="image/*">
-                        </td>
+                    <form action="../Skrypty/PHP/record_form.php" method="POST" id="additionForm">
                         <td class="tableCell">
                             <input class="inputField" type="text" id="name" name="name" maxlength="80" required>
                         </td>
@@ -64,7 +52,8 @@ if(!$connection){
                             <input class="inputField" type="number" id="data" name="data" required>
                         </td>
                         <td class="tableCell">
-                            <button type="submit" class="addEntryButton">Dodaj</button>
+                            <button type="submit" class="addEntryButton" id="addEntryButton">Dodaj</button>
+                            <input type="hidden" name="table_name" id="tableAdditionInput" value="">
                         </td>
                     </form>
                 </tr>
@@ -78,9 +67,9 @@ if(!$connection){
             if ($result) {
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr class='tableRow'>";
-                    echo "<td class='tableCell'>" . "?" . "</td>";
                     echo "<td class='tableCell'>" . $row["name"] . "</td>";
                     echo "<td class='tableCell'>" . $row["data"] . "</td>";
+                    echo "<td class='tableCell'><button action='' class='deleteEntryButton'><svg><use href='../Zasoby/SVG/icons.svg#trashcan-icon'></use></svg></button></td>";
                     echo "</tr>";
                 }
             } else {
@@ -92,6 +81,11 @@ if(!$connection){
         ?>
     </tbody>
 </table>
+<form id="deletionForm" action="../Skrypty/PHP/record_deletion.php" method="POST">
+                    <input type="hidden" name="record_name" id="recordNameInput" value="">
+                    <input type="hidden" name="record_value" id="recordValueInput" value="">
+                    <input type="hidden" name="table_name" id="tableInput" value="">
+                </form>
 </div>
         </main>
     <footer>
@@ -110,7 +104,7 @@ if(!$connection){
 
         <div class="footerSection">
             <h3>PODSTRONY</h3>
-            <a href="../index/index.html" class="footerElement footerLink">strona główna</a>
+            <a href="../index/index.php" class="footerElement footerLink">strona główna</a>
         </div>
 
         <div class="footerSection">
@@ -124,5 +118,6 @@ if(!$connection){
             </a>
         </div>
     </footer>
+    <script src="../Skrypty/JS/modify-table.js"></script>
 </body>
 </html>

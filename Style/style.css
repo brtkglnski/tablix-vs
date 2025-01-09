@@ -40,7 +40,7 @@ main{
 
 .poleOpcji{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     gap: 4%;
     height:100vh;
     margin: 0 auto;
@@ -364,7 +364,18 @@ transition: opacity 0.3s ease;
 .addEntryButton:hover {
     background-color: var(--primary-color-alt);
 }
-
+.deleteEntryButton{
+    border: none;
+    width: 40px;
+    height: 40px;
+    fill: var(--text-color);
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+.deleteEntryButton:hover{
+    fill:rgb(107, 52, 52);
+}
 .imageInput {
     padding: 5px;
     max-width: 25%;
