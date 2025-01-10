@@ -319,6 +319,41 @@ transition: opacity 0.3s ease;
 }
 
 /* ########################### */
+.mainGameLayout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .leftOption, .rightOption {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    height: 100%;
+    width:100%;
+  }
+  
+  .leftOption {
+    background-color: var(--bg-color);
+  }
+  
+  .rightOption {
+    background-color: var(--primary-color);
+  }
+  
+
+
+
+/* ########################### */
 .formBackground {
     background-color: #fafffd;
     border-radius: 12px;
