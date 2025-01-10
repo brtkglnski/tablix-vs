@@ -350,7 +350,17 @@ transition: opacity 0.3s ease;
     background-color: var(--primary-color);
   }
   
+  .leftOption p, .rightOption p {
+    transition: transform 0.2s ease;
+}
 
+.leftOption:hover p {
+    transform: scale(1.1);
+}
+
+.rightOption:hover p {
+    transform:  scale(1.1);
+}
 
 
 /* ########################### */
