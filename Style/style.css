@@ -381,7 +381,7 @@ transition: opacity 0.3s ease;
     width: 5vw;
     height: 40px; /* Match the height of the returnButton */
     background-color: rgba(0,0,0,0.25);
-    color: var(--text-color-alt);
+    color: var(--text-color);
     text-align: end;
     border-radius: 4px;
     display: flex;
