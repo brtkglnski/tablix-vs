@@ -1,3 +1,14 @@
+let topScore = parseInt(localStorage.getItem("topScore"), 10);
+var currentScore = 0;
+console.log(topScore);
+if (isNaN(topScore)) {
+    topScore = 0; // Default value if no score is set
+}
+
+function setTopScore(score) {
+    localStorage.setItem("topScore", score);
+}
+
 document.addEventListener("mousemove", (event) => {
     const mainGameLayout = document.querySelector(".mainGameLayout");
     const leftOption = document.querySelector(".leftOption");
@@ -25,9 +36,6 @@ document.addEventListener("mousemove", (event) => {
     rightText.style.fontSize = `${rightTextSize}rem`;
   });
 
-
-
-
   async function fetchNewOptions() {
     try {
         const tableName = new URLSearchParams(window.location.search).get('table_name');
@@ -39,15 +47,12 @@ document.addEventListener("mousemove", (event) => {
             return;
         }
 
-        // Get parent elements
         const leftOptionElement = document.querySelector('.leftOption');
         const rightOptionElement = document.querySelector('.rightOption');
 
-        // Update text content in p elements
         leftOptionElement.querySelector('p').textContent = data.left.name;
         rightOptionElement.querySelector('p').textContent = data.right.name;
 
-        // Store values using the 'data' property
         leftOptionElement.dataset.value = parseFloat(data.left.data);
         rightOptionElement.dataset.value = parseFloat(data.right.data);
 
@@ -56,6 +61,20 @@ document.addEventListener("mousemove", (event) => {
     }
 }
 
+function gameOver(){
+    //ekran zakonczenia rozgrywki
+    // najlepszy wynik, wynik tej rozgrywki, komunikat o nowym rekordzie
+    // buttony: zagraj ponownie, wyjdz
+}
+
+function returnButton(){
+    if(currentScore==0){
+        window.location.href = "../index/index.php"
+    }
+    else{
+        gameOver()
+    }
+}
 function handleChoice(selectedOption) {
   const otherOption = selectedOption.classList.contains('leftOption')
       ? document.querySelector('.rightOption')
@@ -67,15 +86,24 @@ function handleChoice(selectedOption) {
 
   if (selectedValue > otherValue || selectedValue == otherValue) {
       console.log("Poprawny wybór!");
+      currentScore++;
+      document.querySelector('.currentScore p').textContent = currentScore;
+      
   } 
    else {
       console.log("Niepoprawny wybór.");
+      if(currentScore>topScore){
+        setTopScore(currentScore);
+        console.log("Nowy najwyższy wynik: " + currentScore);
+      }
+      gameOver();
+      currentScore = 0;
+      document.querySelector('.currentScore p').textContent = currentScore;
   }
 
   fetchNewOptions();
 }
-
-// Dodaj nasłuchiwanie na kliknięcia
+document.querySelector('.returnButton').addEventListener('click', () => returnButton())
 document.querySelector('.leftOption').addEventListener('click', () => handleChoice(document.querySelector('.leftOption')));
 document.querySelector('.rightOption').addEventListener('click', () => handleChoice(document.querySelector('.rightOption')));
 document.addEventListener("DOMContentLoaded", (event) => {
