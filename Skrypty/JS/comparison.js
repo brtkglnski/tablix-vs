@@ -10,6 +10,10 @@ function setTopScore(score) {
 }
 
 document.addEventListener("mousemove", (event) => {
+    const selectedPopUp = document.querySelector(".selectedPopUp");
+    if (selectedPopUp && selectedPopUp.style.display === 'flex') {
+        return;
+    }
     const mainGameLayout = document.querySelector(".mainGameLayout");
     const leftOption = document.querySelector(".leftOption");
     const rightOption = document.querySelector(".rightOption");
@@ -60,11 +64,35 @@ document.addEventListener("mousemove", (event) => {
         console.error("Błąd podczas pobierania nowych opcji:", error);
     }
 }
+function optionRotation(){
+    //animacja
+}
+const newRecordMessage = document.createElement('h3');
 
+newRecordMessage.textContent = 'Nowy rekord!';
 function gameOver(){
     //ekran zakonczenia rozgrywki
     // najlepszy wynik, wynik tej rozgrywki, komunikat o nowym rekordzie
     // buttony: zagraj ponownie, wyjdz
+    document.querySelector(".selectedPopUp").style.display = 'flex';
+    if(currentScore>topScore){
+        setTopScore(currentScore);
+        document.querySelector('.scoreInfo').appendChild(newRecordMessage);
+        console.log("Nowy najwyższy wynik: " + currentScore);
+        topScore = currentScore;
+      }
+    document.getElementById("currentScore").textContent = "Wynik: " + currentScore;
+    document.getElementById("topScore").textContent = "Najlepszy wynik: " + topScore;
+    
+}
+function playAgain(){
+    document.querySelector(".selectedPopUp").style.display = 'none';
+    newRecordMessage.remove();
+    fetchNewOptions();
+
+}
+function exit(){
+    window.location.href = "../index/index.php"
 }
 
 function returnButton(){
@@ -75,6 +103,7 @@ function returnButton(){
         gameOver()
     }
 }
+
 function handleChoice(selectedOption) {
   const otherOption = selectedOption.classList.contains('leftOption')
       ? document.querySelector('.rightOption')
@@ -92,10 +121,7 @@ function handleChoice(selectedOption) {
   } 
    else {
       console.log("Niepoprawny wybór.");
-      if(currentScore>topScore){
-        setTopScore(currentScore);
-        console.log("Nowy najwyższy wynik: " + currentScore);
-      }
+      
       gameOver();
       currentScore = 0;
       document.querySelector('.currentScore p').textContent = currentScore;

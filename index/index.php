@@ -27,7 +27,7 @@ if(!$connection){
             <p class="actionMenuTitle" id="actionMenuTitle">tytul</p>
             <button action="" class="actionMenuAbsoluteButton delete"><svg><use href="../Zasoby/SVG/icons.svg#trashcan-icon"></svg></button>
                 <button class="actionMenuAbsoluteButton exit"><svg><use href="../Zasoby/SVG/icons.svg#close-icon"></svg></button>
-            <div class="actionMenuButtons"><button  onclick="window.location.href='../Podstrony/comparison.php?table_name=';" class="primaryButton">Graj</button><button  onclick="window.location.href='../Podstrony/modify-table.php?table_name=';" class="secondaryButton">Edytuj</button></div>
+            <div class="fullwidthButtons"><button  onclick="window.location.href='../Podstrony/comparison.php?table_name=';" class="primaryButton">Graj</button><button  onclick="window.location.href='../Podstrony/modify-table.php?table_name=';" class="secondaryButton">Edytuj</button></div>
             <form id="deletionForm" action="../Skrypty/PHP/table_deletion.php" method="POST">
             <input type="hidden" name="deletion_name" id="deletionInput" value="">
             </form>
@@ -62,7 +62,7 @@ if(!$connection){
 
             <button class="actionMenuAbsoluteButton exit"><svg><use href="../Zasoby/SVG/icons.svg#close-icon"></svg></button>
 
-            <div class="actionMenuButtons">
+            <div class="fullwidthButtons">
             <button class="primaryButton submitting" type="submit" form="tableForm" name="source" value="Custom">Stwórz własną tabelę</button>
             <button class="secondaryButton submitting" type="submit" form="tableForm" name="source" value="Spotify">Importuj przez API</button>
             </div>
