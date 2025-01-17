@@ -30,8 +30,8 @@ document.addEventListener("mousemove", (event) => {
     rightOption.style.flex = rightWidth;
     
 
-    const baseSize = 2;
-    const maxIncrease = 2.5;
+    const baseSize = 1;
+    const maxIncrease = 1;
     
     const leftTextSize = baseSize + maxIncrease * (1 - mouseX);
     const rightTextSize = baseSize + maxIncrease * mouseX;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/style.css">
-    <title>Info</title>
+    <title>Modyfikowanie tabeli</title>
 </head>
 <?php 
 require '../Skrypty/PHP/config.php';

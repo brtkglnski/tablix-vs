@@ -151,7 +151,7 @@ svg{
     padding:8px;
     border-radius: 18px;
 }
-.tableActionMenu {
+.tableActionMenu, .tableCreationMenu {
     display: none;
 }
 
@@ -190,7 +190,6 @@ svg{
     cursor:pointer;
 }
 
-
 .primaryButton{
     cursor:pointer;
 border: none;
@@ -203,10 +202,6 @@ font-weight: bold;
 transition: opacity 0.3s ease;
 }
 
-.primaryButton:hover{
-    opacity: 0.8;
-}
-
 .secondaryButton{
     cursor:pointer;
 border: 3px solid var(--text-color);
@@ -217,11 +212,9 @@ width:45%;
 padding: 5% 5% 5% 5%;
 transition: opacity 0.3s ease;
 }
-.secondaryButton:hover{
+
+.primaryButton:hover, .secondaryButton:hover{
     opacity: 0.8;
-}
-.tableCreationMenu{
-    display:none;
 }
 
 .addTableName{
@@ -392,7 +385,7 @@ transition: opacity 0.3s ease;
     transform: translate(0%, -50%); 
     border: none;
     width: 5vw;
-    height: 40px; /* Match the height of the returnButton */
+    height: 40px; 
     background-color: rgba(0,0,0,0.25);
     color: var(--text-color);
     text-align: end;
@@ -426,7 +419,6 @@ transition: opacity 0.3s ease;
     gap: 10px;
 }
 
-
 .inputField{
     border: 1px solid var(--neutral-color);
     border-radius: 6px;
@@ -438,10 +430,6 @@ transition: opacity 0.3s ease;
     border-radius: 6px;
     padding: 10px;
     width: 20%;
-}
-.inputField:focus, .imageInput:focus {
-    border-color: #6c91c1;
-    outline: none;
 }
 
 .addEntryButton {
@@ -472,10 +460,6 @@ transition: opacity 0.3s ease;
 .imageInput {
     padding: 5px;
     max-width: 25%;
-}
-::-webkit-file-upload-button,
-::file-selector-button {
-  display: none;
 }
 .addEntryForm div {
     display: flex;
@@ -526,4 +510,11 @@ transition: opacity 0.3s ease;
 }
 .w10{
     width:10%;
+}
+.importingForm{
+    width:40%;
+    height: 60%;
+}
+.importingForm div{
+ padding: 2% 0% 2% 0%;
 }

@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/style.css">
-    <title>Info</title>
+    <title>Importowanie poprzez API</title>
 </head>
+<?php 
+require '../Skrypty/PHP/config.php';
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "tablix_vs";
+$table = "metadata";
+
+$connection = mysqli_connect($server, $username, $password, $database);
+if(!$connection){
+    die("Połączenie nieudane: " . mysqli_connect_error());
+}
+?>
 <body>
     <header>
         <img src="../Zasoby/Obrazy/tablix_logo.png">
         </header>
-        <main>
-            <div class="infoLayout">
-                <span><h1>HISTORIA WERSJI</h1>
-                
-                v1.00 - Pierwsze w pełni funkcjonalne wydanie strony (17.01.25)
-                
-                </span>
-                        
-            </div>
+        <main class="inputLayout"> 
+        <form method="POST" action="../Skrypty/PHP/api_importing.php" class="formBackground importingForm">
+    <div>Link do playlisty<br><input type="text" id="playlist_url" name="playlist_url" required class="inputField"></div><br>
+    <div>clientId<br><input type="text" id="client_id" name="client_id" required class="inputField"></div><br>
+    <div>clientSecret<br><input type="text" id="client_secret" name="client_secret" required class="inputField"></div>
+    <input type="hidden" id="table_name" name="table_name" value="<?php $table_name = $_GET['table_name']; echo $table_name; ?>">
+    <div class="fullwidthButtons"><button type="submit" class="primaryButton">Pobierz dane z playlisty</button>
+    <button type="reset" class="secondaryButton">Wyczyść</button></div>
+</form>
+
         </main>
     <footer>
         <div class="footerSection">
@@ -50,5 +64,6 @@
             </a>
         </div>
     </footer>
+    <!-- <script src="../Skrypty/JS/api-importing.js"></script> -->
 </body>
 </html>

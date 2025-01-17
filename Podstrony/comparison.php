@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/style.css">
-    <title>[nazwa tabeli]</title>
+    <title>
+        <?php
+             if (isset($_GET['table_name'])) {
+            $table_name = $_GET['table_name'];
+            echo $table_name;
+             }
+             ?>
+             </title>
 </head>
 <body>
         <main class="mainGameLayout">

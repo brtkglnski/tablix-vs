@@ -38,7 +38,7 @@ function menuOpcji(event) {
             primaryButton.onclick = function() {
                 const tableName = document.getElementById('actionMenuTitle').innerText;
                 const url = `../Podstrony/comparison.php?table_name=${tableName}`;
-                window.location.href = url;  // Redirect to the URL
+                window.location.href = url; 
             };
         }
     

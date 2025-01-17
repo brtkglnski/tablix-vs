@@ -37,9 +37,14 @@ try {
     mysqli_rollback($connection);
     echo "Transakcja nieudana: " . $e->getMessage();
 }
-
 if (!empty($_SERVER['HTTP_REFERER'])) {
-    header("Location: " . $_SERVER['HTTP_REFERER']);
+    if($source == "Spotify"){
+        $redirectUrl = "../../Podstrony/api-importing.php?table_name=" . $table_name;
+    }
+    else{
+        $redirectUrl = "../../Podstrony/modify-table.php?table_name=" . $table_name;
+    }
+    header("Location: $redirectUrl");
     exit();
 } else {
     echo "Przesłano formularz.";
