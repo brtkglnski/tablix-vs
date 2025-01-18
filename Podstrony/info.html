@@ -6,20 +6,86 @@
     <link rel="stylesheet" href="../Style/style.css">
     <title>Info</title>
 </head>
-<body>
+<body class="grid">
     <header>
         <img src="../Zasoby/Obrazy/tablix_logo.png">
         </header>
         <main>
-            <div class="infoLayout">
-                <span><h1>HISTORIA WERSJI</h1>
-                
-                v1.0 - Pierwsze w pełni funkcjonalne wydanie strony (17.01.25)<br>
-                v1.1 - Dodano import danych poprzez Spotify (18.01.25)
-                
-                </span>
-                        
+            <div class="infoLayout sectionSize50">
+                <div class="infoSection">
+                    <h1>Tworzenie</h1>
+                    <p>Twórz własne tabele na dowolny temat lub importuj swoje ukochane playlisty Spotify - wybór jest Twój!</p>
+                </div>
+                <div class="infoSection horizontal doubleWidth">
+                    <div class="Option Spotify disabledAction">
+                    <svg class="optionCover" id="optionCover">
+                        <use href="../Zasoby/SVG/icons.svg#spotify-icon"></use> 
+                    </svg>
+                    <p id="optionDescription" class="optionDescription">Playlista</p>
+                  </div>
+
+                  <div class="Option Custom disabledAction">
+                    <svg class="optionCover" id="optionCover">
+                        <use href="../Zasoby/SVG/icons.svg#bar-chart-icon"></use> 
+                    </svg>
+                    <p id="optionDescription" class="optionDescription">Tabela</p>
+                  </div>
+                  <div class="Option add disabledAction">
+                    <svg class="optionCover" id="optionCover">
+                        <use href="../Zasoby/SVG/icons.svg#plus-icon"></use> 
+                    </svg>
+                    <p id="optionDescription" class="optionDescription">Dodaj</p>
+                  </div>
+                </div>
             </div>
+        <div class="infoLayout sectionSize50">
+            <div class="infoSection doubleWidth noPadding noMargin marginLeft">
+                <img src="../Zasoby/Obrazy/formPreview.png" class="matchWidth dropShadow">
+            </div>
+            <div class="infoSection">
+                <h1>Modyfikowanie</h1>
+                <p>Dodawaj i usuwaj rekordy z tablic bez większego wysiłku!</p>
+            </div>
+        </div>
+
+            <div class="infoLayout Spotify sectionSize50">
+                <div class="infoSection">
+                    <h1>WARTOŚCI</h1>
+                    <p>Wartości, które są przypisywane do piosenek, to podawany przez Spotify wynik "popularności" piosenki w skali od 0 do 100. Niestety Spotify nie umożliwia na odczyt całkowitej ilości odsłuchań utworu przez API, więc ta statystyka to najlepsze rozwiązanie.</p>
+                </div>
+                <div class="infoSection">
+                    <h1>SPOTIFY API</h1>
+                    <p>Ze względu na ograniczenia API Spotify oraz charakter projektu, do importu przez API wymagane jest podanie danych deweloperskich (Client ID, Client secret) - są one wykorzystywane jedynie do otrzymania tokena dostępu do API.</p>
+                </div>
+                <div class="infoSection">
+                    <h1>OGRANICZENIA</h1>
+                    <p>Po niedawnych zmianach w zasadach oraz działaniu API oficjalne playlisty stworzone przez Spotify nie mogą zostać zaimportowane - jedynym obejściem tego problemu jest stworzenie kopii wybranej playlisty.</p>
+                </div>
+
+            </div>
+
+            <div class="infoLayout sectionSize100 bg-color alignItemsNone">
+                <div class="infoSection">
+                    <h1>HISTORIA WERSJI</h1>
+                    <div class="timelineSection">
+                        <p class="timelineElement">v1.0 - Pierwsze w pełni funkcjonalne wydanie strony (17.01.25)</p>
+                        <p class="timelineElement">v1.1 - Dodano import danych poprzez Spotify (18.01.25)</p>
+                        <p class="timelineElement">v1.2 - Dopracowano styl strony, podstawowa walidacja (18.01.25)</p>
+                        </div>
+                </div>
+
+                <div class="infoSection doubleWidth" >
+                    <h1>CZĘSTO ZADAWANE PYTANIA</h1>
+                    <h3>Żadnych nie ma ;)</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate odio iste architecto, unde molestiae rerum corporis rem, necessitatibus minus, ducimus ullam eos voluptatem cupiditate facere.</p>
+                    <h3>Lorem ipsum dolor sit amet?</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti fuga dolor dignissimos, quae tempora, iste animi neque nihil unde explicabo minima quisquam aut veniam dolore, ipsam molestias perferendis corporis sint.</p>
+                    <h3>Lorem ipsum a sit amet?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas ab velit aliquam, neque necessitatibus molestiae tenetur fugit assumenda molestias sed tempore reiciendis!</p>
+                    <h3>Lorem a dolor stand amet?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores ab exercitationem obcaecati ratione. In?</p>
+                </div>
+             </div>
         </main>
     <footer>
         <div class="footerSection">

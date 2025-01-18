@@ -117,17 +117,15 @@ function handleChoice(selectedOption) {
       console.log("Poprawny wybór!");
       currentScore++;
       document.querySelector('.currentScore p').textContent = currentScore;
-      
+      fetchNewOptions();
   } 
    else {
       console.log("Niepoprawny wybór.");
-      
       gameOver();
       currentScore = 0;
       document.querySelector('.currentScore p').textContent = currentScore;
   }
 
-  fetchNewOptions();
 }
 document.querySelector('.returnButton').addEventListener('click', () => returnButton())
 document.querySelector('.leftOption').addEventListener('click', () => handleChoice(document.querySelector('.leftOption')));

@@ -19,7 +19,7 @@ if(!$connection){
     die("Połączenie nieudane: " . mysqli_connect_error());
 }
 ?>
-<body>
+<body  class="grid">
     <header>
         <img src="../Zasoby/Obrazy/tablix_logo.png">
         </header>

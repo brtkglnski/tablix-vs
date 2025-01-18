@@ -19,11 +19,11 @@ if(!$connection){
     die("Połączenie nieudane: " . mysqli_connect_error());
 }
 ?>
-<body>
+<body class="grid">
     <div class="selectedPopUp" id="selectedPopUp">
 
-        <div class="tableActionMenu tableMenu" id="tableActionMenu">
-            <svg class="okladkaOpcji" id="svg"><use href="../Zasoby/SVG/icons.svg#database-icon"></use></svg>
+        <div class="tableActionMenu tableMenu " id="tableActionMenu">
+            <svg class="optionCover" id="svg"><use href="../Zasoby/SVG/icons.svg#database-icon"></use></svg>
             <p class="actionMenuTitle" id="actionMenuTitle">tytul</p>
             <button action="" class="actionMenuAbsoluteButton delete"><svg><use href="../Zasoby/SVG/icons.svg#trashcan-icon"></svg></button>
                 <button class="actionMenuAbsoluteButton exit"><svg><use href="../Zasoby/SVG/icons.svg#close-icon"></svg></button>
@@ -36,8 +36,8 @@ if(!$connection){
         <div class="tableCreationMenu tableMenu" id="tableCreationMenu">
 
             <label for="svg">Wybierz ikonę</label>
-            <svg class="okladkaOpcji iconSelection" id="svg" form="tableForm"><use href="../Zasoby/SVG/icons.svg#plus-icon"></use></svg>
-            <div class="okladkaOpcji iconSelectionMenu">
+            <svg class="optionCover iconSelection" id="svg" form="tableForm"><use href="../Zasoby/SVG/icons.svg#plus-icon"></use></svg>
+            <div class="optionCover iconSelectionMenu">
                 <svg class="iconOption"><use name="icon_id" value="heart-icon" href="../Zasoby/SVG/icons.svg#heart-icon"/></svg>
                 <svg class="iconOption"><use name="icon_id" value="star-icon" href="../Zasoby/SVG/icons.svg#star-icon"/></svg>
                 <svg class="iconOption"><use name="icon_id" value="controller-icon" href="../Zasoby/SVG/icons.svg#controller-icon"/></svg>
@@ -79,29 +79,27 @@ if(!$connection){
     <img src="../Zasoby/Obrazy/tablix_logo.png">
     </header>
     <main>
-    <div class="poleOpcji">
+    <div class="optionField">
     <?php
-
-
 $sql = "SELECT * FROM metadata;";
 $result = mysqli_query($connection, $sql);  
 
 
 if ($result) {
     while ($row = mysqli_fetch_array($result)) { 
-        echo '<div class="Opcja '.$row["source"].'" id="Opcja">
-                <svg class="okladkaOpcji" id="okladkaOpcji">
+        echo '<div class="Option '.$row["source"].'" id="Option">
+                <svg class="optionCover" id="optionCover">
                     <use href="../Zasoby/SVG/icons.svg#'.$row["icon_id"].'"></use> 
                 </svg>
-                <p id="opisOpcji" class="opisOpcji">'.$row["table_name"].'</p>
+                <p id="optionDescription" class="optionDescription">'.$row["table_name"].'</p>
               </div>';
     }
 } else {
     echo "Error: " . mysqli_error($connection); 
 }
 ?>
-        <div class="Opcja dodaj"  id="Opcja">
-            <svg class="okladkaOpcji" id="okladkaOpcji"><use href="../Zasoby/SVG/icons.svg#plus-icon"></svg><p id="opisOpcji" class="opisOpcji">Dodaj tabelę...</p>
+        <div class="Option add"  id="Option">
+            <svg class="optionCover" id="optionCover"><use href="../Zasoby/SVG/icons.svg#plus-icon"></svg><p id="optionDescription" class="optionDescription">Dodaj tabelę...</p>
         </div>
     </div>
 </main>

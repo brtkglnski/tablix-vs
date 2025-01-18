@@ -8,19 +8,24 @@ function menuOpcji(event) {
     selectedPopUp.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
-    if (clickedCard.classList.contains('dodaj')) {
+    if (clickedCard.classList.contains('add')) {
         tableActionMenu.style.display = 'none';
         tableCreationMenu.style.display = 'flex';
+
+        const primaryButton = tableCreationMenu.querySelector('.primaryButton');
+        const cardStyle = window.getComputedStyle(clickedCard);
+        const backgroundColor = cardStyle.backgroundColor;
+        primaryButton.style.color = backgroundColor;
     } 
     else {
-    const cardTitleElement = clickedCard.querySelector('.opisOpcji');
-    const cardIconElement = clickedCard.querySelector('.okladkaOpcji use');
+    const cardTitleElement = clickedCard.querySelector('.optionDescription');
+    const cardIconElement = clickedCard.querySelector('.optionCover use');
     
         const cardTitle = cardTitleElement.innerText;
         const cardIcon = cardIconElement.cloneNode(true); 
 
 
-        const primaryButton = document.querySelector('.primaryButton');
+        const primaryButton = tableActionMenu.querySelector('.primaryButton');
         const actionMenuTitle = document.getElementById('actionMenuTitle');
         const actionMenuIcon = document.querySelector('.tableActionMenu use');
         const cardStyle = window.getComputedStyle(clickedCard);
@@ -53,7 +58,7 @@ function menuOpcji(event) {
     }
     }
     
-document.querySelectorAll('.Opcja').forEach(card => {
+document.querySelectorAll('.Option').forEach(card => {
     card.addEventListener('click', menuOpcji);
 });
 

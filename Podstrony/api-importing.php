@@ -19,7 +19,7 @@ if(!$connection){
     die("Połączenie nieudane: " . mysqli_connect_error());
 }
 ?>
-<body>
+<body class="grid">
     <header>
         <img src="../Zasoby/Obrazy/tablix_logo.png">
         </header>
@@ -29,8 +29,8 @@ if(!$connection){
     <div>clientId<br><input type="text" id="client_id" name="client_id" required class="inputField"></div><br>
     <div>clientSecret<br><input type="text" id="client_secret" name="client_secret" required class="inputField"></div>
     <input type="hidden" id="table_name" name="table_name" value="<?php $table_name = $_GET['table_name']; echo $table_name; ?>">
-    <div class="fullwidthButtons"><button type="submit" class="primaryButton">Pobierz dane z playlisty</button>
-    <button type="reset" class="secondaryButton">Wyczyść</button></div>
+    <div class="fullwidthButtons"><button type="submit" class="primaryButton importingButton">Pobierz dane z playlisty</button>
+    <button type="reset" class="secondaryButton importingButton_alt">Wyczyść</button></div>
 </form>
 
         </main>
@@ -64,6 +64,5 @@ if(!$connection){
             </a>
         </div>
     </footer>
-    <!-- <script src="../Skrypty/JS/api-importing.js"></script> -->
 </body>
 </html>

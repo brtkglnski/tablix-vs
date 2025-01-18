@@ -5,7 +5,7 @@
     --primary-color: #6c91c1;
     --primary-color-alt: #5a7ca9;
     --secondary-color: #1db954;
-    --neutral-color: rgb(184, 184, 184);
+    --neutral-color: #b8b8b8;
 }
 
 body{
@@ -38,16 +38,17 @@ main{
 }
 /* ########################### */
 
-.poleOpcji{
+.optionField{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 35%;
     gap: 4%;
     height:100vh;
     margin: 0 auto;
     width:60%;
     justify-content: center;
 }
-.Opcja{
+.Option{
     aspect-ratio: 12/16;
     height: 30vh;
     border-radius: 12px;
@@ -58,12 +59,12 @@ main{
     padding:8px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    box-shadow:0px -5px 20px 0px var(--text-color) inset, 0px 7.5px 20px 0px var(--text-color);
+    box-shadow:0px -5px 20px 0px rgba(0,0,0,0.6) inset, 0px 7.5px 20px 0px rgba(0,0,0,0.6);
 }
-.Opcja:hover{
+.Option:hover{
     transform: translateY(-5%);
 }
-.okladkaOpcji{
+.optionCover{
     width:75%;
     aspect-ratio: 1/1;
 }
@@ -75,8 +76,8 @@ main{
 .Spotify{
     background-color: var(--secondary-color);
 }
-.dodaj{
-    background-color: rgb(184, 184, 184);
+.add{
+    background-color: var(--neutral-color);
 }
 
 /* ########################### */
@@ -150,6 +151,7 @@ svg{
     justify-content: center;
     padding:8px;
     border-radius: 18px;
+    box-shadow:0px -5px 20px 0px rgba(0,0,0,0.4) inset, 0px 7.5px 20px 0px rgba(0,0,0,0.6);
 }
 .tableActionMenu, .tableCreationMenu {
     display: none;
@@ -193,7 +195,7 @@ svg{
 .primaryButton{
     cursor:pointer;
 border: none;
-color: rgb(184, 184, 184);
+color: var(--bg-color);
 background-color: var(--text-color);
 width:45%;
 border-radius: 0.5em;
@@ -273,9 +275,9 @@ transition: opacity 0.3s ease;
         font-size: 14px;
     }
 
-    .poleOpcji {
+    .optionField {
         display: grid;
-        grid-template-columns: auto; 
+        grid-template-columns: auto auto; 
         gap: 2%;
     }
     footer{
@@ -287,29 +289,52 @@ transition: opacity 0.3s ease;
 /* ########################### */
 
 .infoLayout{
-    height: 100vh;
+    height: 60vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
-.info{
-    aspect-ratio: 16/12;
-    height: 70vh;
-    border-radius: 12px;
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: start;
-    padding:8px;
-    margin:1%;
-    transition: none;
-    cursor:default;
-    box-shadow:0px -5px 20px 0px var(--text-color) inset, 0px 7.5px 20px 0px var(--text-color);
+.timelineSection{
+    position: relative;
+    width: 100%;
+}
+.timelineSection::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left:0%;
+    width: 4px;
+    height: 100%; 
+    background-color: var(--primary-color-alt);
+}
+.timelineSection ul{
+    list-style-type: none;
+}
+.timelineElement{
+    width:100%;
+    position: relative;
+    margin-bottom: 15%;
+    margin-left: 10%;
+}
+.timelineElement::before {
+    content: "";
+    position: absolute;
+    left: -11%; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 14px; 
+    height: 14px; 
+    border-radius: 50%; 
+    background-color: var(--primary-color); 
+}
+.infoSection{
+    padding:2%;
+    margin:2% 5% 2% 5%;
+    width:30%;
 }
 
-.info:hover{
-    transform: none;
-}
+
 
 /* ########################### */
 .mainGameLayout {
@@ -339,12 +364,11 @@ transition: opacity 0.3s ease;
   .leftOption {
     background-color: var(--bg-color);
   }
-  
-  .rightOption {
-    background-color: var(--primary-color);
-  }
+
   
   .leftOption p, .rightOption p {
+    text-align: center;
+    width: 40%;
     transition: transform 0.2s ease;
 }
 
@@ -446,13 +470,14 @@ transition: opacity 0.3s ease;
     background-color: var(--primary-color-alt);
 }
 .deleteEntryButton{
+    opacity: 0;
     border: none;
     width: 40px;
     height: 40px;
     fill: var(--text-color);
     background-color: rgba(0,0,0,0);
     cursor: pointer;
-    transition: fill 0.3s ease;
+    transition: fill 0.3s ease, opacity 0.1s ease;
 }
 .deleteEntryButton:hover{
     fill:rgb(107, 52, 52);
@@ -482,7 +507,7 @@ transition: opacity 0.3s ease;
 }
 .tableHeaderCell{
     text-align: start;
-}
+}   
 .tableRow:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -490,8 +515,11 @@ transition: opacity 0.3s ease;
 .tableRow:hover {
     background-color: #f1f1f1;
 }
-
+.tableRow:hover .deleteEntryButton {
+    opacity: 1;
+  }
 .tableCell {
+    width: 50%;
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -517,4 +545,59 @@ transition: opacity 0.3s ease;
 }
 .importingForm div{
  padding: 2% 0% 2% 0%;
+}
+.importingButton{
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+}
+
+.importingButton_alt{
+    border: 3px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+.bg-color{
+    background-color: var(--bg-color);
+}
+.grid{
+    background-image: url("../Zasoby/Obrazy/gridTexture.png");
+}
+.horizontal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.doubleWidth{
+    width:60%;
+}
+.disabledAction:hover{
+    transform: none;
+    cursor: default;
+}
+.matchWidth{
+    width:100%;
+    height:auto;
+}
+.sectionSize50{
+    height: 50vh;
+}
+.sectionSize100{
+    height: 100vh;
+}
+.noPadding{
+    padding: 0;
+}
+.noMargin{
+    margin: 0;
+}
+.marginLeft{
+    margin-left: 5%;
+}
+.dropShadow{
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+.justifyContentNone{
+    justify-content: start;
+}
+.alignItemsNone{
+    align-items: start;
 }

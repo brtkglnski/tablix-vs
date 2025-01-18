@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../Style/style.css">
     <title>
         <?php
+        require '../Skrypty/PHP/config.php';
              if (isset($_GET['table_name'])) {
             $table_name = $_GET['table_name'];
             echo $table_name;
@@ -14,11 +15,17 @@
              </title>
 </head>
 <body>
-        <main class="mainGameLayout">
+        <main class="mainGameLayout grid">
        <div class="leftOption">
         <p>x</p>
        </div>
-       <div class="rightOption">
+       <?php
+$stmt = mysqli_prepare($connection, "SELECT source FROM metadata WHERE table_name = ?");
+mysqli_stmt_bind_param($stmt, "s", $table_name);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+while ($row = mysqli_fetch_array($result)) echo '<div class="rightOption '.$row["source"].'">';
+?>
         <p>x</p>
        </div>
        <div class="returnButton top-left">
