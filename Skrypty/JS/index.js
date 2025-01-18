@@ -116,10 +116,6 @@ document.querySelectorAll('.submitting').forEach(button => {
 
         tableInput.value = tableNameInput.value;
         sourceInput.value = button.value;
-
-        console.log('Table:', tableInput.value);
-        console.log('Icon:', iconInput.value);
-        console.log('Source:', sourceInput.value);
         
         if (!tableInput.value || !iconInput.value || !sourceInput.value) {
             alert('Please fill all required fields!');

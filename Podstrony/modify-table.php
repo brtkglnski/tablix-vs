@@ -26,7 +26,6 @@ if(!$connection){
         <main class="inputLayout"> 
         <div class="formBackground">
 
-    <table border="1">
             <h1 id="databaseTitle">        
             <?php
              if (isset($_GET['table_name'])) {

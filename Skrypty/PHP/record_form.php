@@ -17,6 +17,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $metadata_row = mysqli_fetch_assoc($metadata_result);
         $metadata_id = $metadata_row['id'];
 
+        $validation = "SELECT * FROM `$table_name` WHERE name = ?";
+        $stmt = $connection->prepare($validation);
+        $stmt->bind_param("s", $record_name);
+        $stmt->execute();
+        $records_result = $stmt->get_result();
+    if ($records_result->num_rows > 0) {
+        header("Location: ". $_SERVER['HTTP_REFERER']);
+        exit();
+    }
+
+
         $insert_query = "INSERT INTO `$table_name` (`name`, `data`, `metadata_id`) VALUES ('$record_name', '$record_value', '$metadata_id')";
 
         if (mysqli_query($connection, $insert_query)) {
