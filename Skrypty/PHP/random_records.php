@@ -1,12 +1,5 @@
-
 <?php
 require 'config.php';
-$server = "localhost";
-$username = "root";
-$password = "";
-$database = "tablix_vs";
-
-$connection = mysqli_connect($server, $username, $password, $database);
 if (!$connection) {
     die("Połączenie nieudane: " . mysqli_connect_error());
 }

@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($record_name) || empty($record_value) || empty($table_name)) {
         die("Błąd - brakuje danych");
     }
-
     $metadata_query = "SELECT id FROM metadata WHERE table_name = '$table_name'";
     $metadata_result = mysqli_query($connection, $metadata_query);
 
@@ -26,8 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ". $_SERVER['HTTP_REFERER']);
         exit();
     }
-
-
         $insert_query = "INSERT INTO `$table_name` (`name`, `data`, `metadata_id`) VALUES ('$record_name', '$record_value', '$metadata_id')";
 
         if (mysqli_query($connection, $insert_query)) {

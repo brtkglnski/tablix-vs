@@ -6,9 +6,7 @@ $table_name = $_POST['deletion_name'] ?? '';
 if (empty($table_name)) {
     die("Wymagana jest nazwa tablicy.");
 }
-
 mysqli_begin_transaction($connection);
-
 try {
     $drop_table_query = "DROP TABLE IF EXISTS `$table_name`";
     if (!mysqli_query($connection, $drop_table_query)) {
