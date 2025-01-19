@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Modyfikowanie tabeli</title>
 </head>
 <?php 
@@ -20,6 +23,17 @@ if(!$connection){
 }
 ?>
 <body  class="grid">
+            <div class="returnButton top-left">
+        <a href="../index/index.php"><svg><use href="../Zasoby/SVG/icons.svg#close-icon"></svg></a>
+       </div> 
+       <div class="returnButton top-right topRightTranslate">
+        <a href="../Podstrony/api-importing.php?table_name=<?php
+             if (isset($_GET['table_name'])) {
+            $table_name = $_GET['table_name'];
+            echo $table_name;
+             }?>"
+            ><svg><use href="../Zasoby/SVG/icons.svg#spotify-icon"></svg></a>
+       </div> 
     <header>
         <img src="../Zasoby/Obrazy/tablix_logo.png">
         </header>
@@ -95,15 +109,19 @@ if(!$connection){
 
         <div class="footerSection">
             <h3>O PROJEKCIE</h3>
-            <a href="xd" download class="footerElement footerLink">
-                dokumentacja <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
+            <a href="../Zasoby/Dokumenty/Tablix - Dokumentacja Użytkownika.pdf" download class="footerElement footerLink">
+                dokumentacja użytkownika <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
+            </a>
+            <a href="../Zasoby/Dokumenty/Tablix - Dokumentacja Techniczna.pdf" download class="footerElement footerLink">
+                dokumentacja techniczna <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
             </a>
             <br>
         </div>
 
         <div class="footerSection">
             <h3>PODSTRONY</h3>
-            <a href="../index/index.php" class="footerElement footerLink">strona główna</a>
+            <a href="../index/index.php" class="footerElement footerLink">strona główna</a><br>
+            <a href="../Podstrony/info.html" class="footerElement footerLink">info</a>
         </div>
 
         <div class="footerSection">

@@ -16,10 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $delete_query = "DELETE FROM `$table_name` WHERE `name` = '$record_name'";
 
     if (mysqli_query($connection, $delete_query)) {
-        header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
     } else {
-        die("Bład przy usuwaniu: " . mysqli_error($connection));
+        die("Błąd przy usuwaniu: " . mysqli_error($connection));
     }
 }
 ?>

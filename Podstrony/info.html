@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Info</title>
 </head>
 <body class="grid">
+    <div class="returnButton top-left">
+        <a href="../index/index.php"><svg><use href="../Zasoby/SVG/icons.svg#close-icon"></svg></a>
+       </div> 
     <header>
         <img src="../Zasoby/Obrazy/tablix_logo.png">
         </header>
@@ -76,14 +82,14 @@
 
                 <div class="infoSection doubleWidth" >
                     <h1>CZĘSTO ZADAWANE PYTANIA</h1>
-                    <h3>Żadnych nie ma ;)</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate odio iste architecto, unde molestiae rerum corporis rem, necessitatibus minus, ducimus ullam eos voluptatem cupiditate facere.</p>
-                    <h3>Lorem ipsum dolor sit amet?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti fuga dolor dignissimos, quae tempora, iste animi neque nihil unde explicabo minima quisquam aut veniam dolore, ipsam molestias perferendis corporis sint.</p>
-                    <h3>Lorem ipsum a sit amet?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas ab velit aliquam, neque necessitatibus molestiae tenetur fugit assumenda molestias sed tempore reiciendis!</p>
-                    <h3>Lorem a dolor stand amet?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores ab exercitationem obcaecati ratione. In?</p>
+                    <h3>Czy mogę dodać obrazki lub inne multimedia do tabel?</h3>
+                    <p>Obecna wersja obsługuje jedynie dane tekstowe i liczbowe. Dodawanie multimediów może być uwzględnione w przyszłych aktualizacjach.</p>
+                    <h3>Dlaczego "Najlepszy wynik" jest wspólny dla wszystkich tabel?</h3>
+                    <p>"Najlepszy wynik" jest wspólny, ponieważ odnosi się do całej gry, a nie do konkretnej tabeli, co zwiększa wyzwanie i motywuje do odkrywania nowych tabel.</p>
+                    <h3>Czy mogę modyfikować tabele zaimportowane z API Spotify?</h3>
+                    <p>Tak, zaimportowane tabele można edytować w taki sam sposób, jak te dodane ręcznie.</p>
+                    <h3>Czy mogę ustawić własne kryteria porównywania elementów?</h3>
+                    <p>Na ten moment kryteria porównywania są ustalone na podstawie wartości liczbowych w tabeli (wybierz największą opcję). Rozszerzenie tej funkcji może być zaplanowane w przyszłych wersjach.</p>
                 </div>
              </div>
         </main>
@@ -95,8 +101,11 @@
 
         <div class="footerSection">
             <h3>O PROJEKCIE</h3>
-            <a href="xd" download class="footerElement footerLink">
-                dokumentacja <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
+            <a href="../Zasoby/Dokumenty/Tablix - Dokumentacja Użytkownika.pdf" download class="footerElement footerLink">
+                dokumentacja użytkownika <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
+            </a>
+            <a href="../Zasoby/Dokumenty/Tablix - Dokumentacja Techniczna.pdf" download class="footerElement footerLink">
+                dokumentacja techniczna <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
             </a>
             <br>
         </div>

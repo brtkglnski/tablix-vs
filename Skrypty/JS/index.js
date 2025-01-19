@@ -1,5 +1,4 @@
-function menuOpcji(event) {
-
+function optionMenu(event) {
     const clickedCard = event.currentTarget;
     const selectedPopUp = document.getElementById('selectedPopUp');
     const tableActionMenu = document.getElementById('tableActionMenu');
@@ -59,10 +58,10 @@ function menuOpcji(event) {
     }
     
 document.querySelectorAll('.Option').forEach(card => {
-    card.addEventListener('click', menuOpcji);
+    card.addEventListener('click', optionMenu);
 });
 
-function closeMenuOpcji(){
+function closeOptionMenu(){
     const selectedPopUp = document.querySelector('.selectedPopUp');
     const tableActionMenu = document.getElementById('tableActionMenu');
     const tableCreationMenu = document.getElementById('tableCreationMenu');
@@ -74,7 +73,7 @@ function closeMenuOpcji(){
         document.body.style.overflow = '';
 }
 document.querySelectorAll('.actionMenuAbsoluteButton.exit').forEach(button => {
-    button.addEventListener('click', closeMenuOpcji);
+    button.addEventListener('click', closeOptionMenu);
 });
 
 function selectTableIconMenu(){
@@ -102,7 +101,6 @@ function selectTableIcon(event){
 
     iconSelection.style.display = 'flex';
     iconSelectionMenu.style.display = 'none';
-    console.log('Selected Icon ID:', selectedIconId);
 }
 
 document.querySelectorAll('.iconOption').forEach(option => {
@@ -111,7 +109,6 @@ document.querySelectorAll('.iconOption').forEach(option => {
 
 document.querySelectorAll('.submitting').forEach(button => {
     button.addEventListener('click', (event) => {
-        // Prevent the default form submission
         event.preventDefault();
 
         const tableInput = document.getElementById('tableInput');
@@ -119,11 +116,16 @@ document.querySelectorAll('.submitting').forEach(button => {
         const sourceInput = document.getElementById('sourceInput');
         const tableNameInput = document.getElementById('addTableName');
 
-        tableInput.value = tableNameInput.value;
+        tableInput.value = tableNameInput.value.trim();
         sourceInput.value = button.value;
         
+        if (tableInput.value.includes('`')) {
+            alert('Nazwa tabeli nie może zawierać symbolu " ` ". Spróbuj ponownie.');
+            return;
+        }
+
         if (!tableInput.value || !iconInput.value || !sourceInput.value) {
-            alert('Please fill all required fields!');
+            alert('Proszę wypełnić wszystkie pola (oraz dodać ikonę)!');
             return;
         }
 
@@ -137,7 +139,7 @@ function deleteTable(button){
     var deletionInput = document.getElementById('deletionInput');
     deletionInput.value = databaseTitle;
     if(!deletionInput.value){
-        alert('Deletion failed');
+        alert('Usuwanie nieudane.');
     }
     document.getElementById('deletionForm').submit();
 }

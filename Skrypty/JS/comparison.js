@@ -1,10 +1,8 @@
 let topScore = parseInt(localStorage.getItem("topScore"), 10);
 var currentScore = 0;
-console.log(topScore);
 if (isNaN(topScore)) {
-    topScore = 0; // Default value if no score is set
+    topScore = 0; 
 }
-
 function setTopScore(score) {
     localStorage.setItem("topScore", score);
 }
@@ -14,14 +12,12 @@ document.addEventListener("mousemove", (event) => {
     if (selectedPopUp && selectedPopUp.style.display === 'flex') {
         return;
     }
-    const mainGameLayout = document.querySelector(".mainGameLayout");
     const leftOption = document.querySelector(".leftOption");
     const rightOption = document.querySelector(".rightOption");
     const leftText = leftOption.querySelector("p");
     const rightText = rightOption.querySelector("p");
   
     const mouseX = event.clientX / window.innerWidth;
-  
   
     const rightWidth = 50 + (mouseX - 0.5) * 20;
     const leftWidth = 100 - rightWidth;
@@ -64,21 +60,14 @@ document.addEventListener("mousemove", (event) => {
         console.error("Błąd podczas pobierania nowych opcji:", error);
     }
 }
-function optionRotation(){
-    //animacja
-}
-const newRecordMessage = document.createElement('h3');
 
+const newRecordMessage = document.createElement('h3');
 newRecordMessage.textContent = 'Nowy rekord!';
 function gameOver(){
-    //ekran zakonczenia rozgrywki
-    // najlepszy wynik, wynik tej rozgrywki, komunikat o nowym rekordzie
-    // buttony: zagraj ponownie, wyjdz
     document.querySelector(".selectedPopUp").style.display = 'flex';
     if(currentScore>topScore){
         setTopScore(currentScore);
         document.querySelector('.scoreInfo').appendChild(newRecordMessage);
-        console.log("Nowy najwyższy wynik: " + currentScore);
         topScore = currentScore;
       }
     document.getElementById("currentScore").textContent = "Wynik: " + currentScore;
@@ -114,13 +103,11 @@ function handleChoice(selectedOption) {
   const otherValue = parseFloat(otherOption.dataset.value);
 
   if (selectedValue > otherValue || selectedValue == otherValue) {
-      console.log("Poprawny wybór!");
       currentScore++;
       document.querySelector('.currentScore p').textContent = currentScore;
       fetchNewOptions();
   } 
    else {
-      console.log("Niepoprawny wybór.");
       gameOver();
       currentScore = 0;
       document.querySelector('.currentScore p').textContent = currentScore;

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona główna</title>
     <link rel="stylesheet" href="../Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <?php 
 require '../Skrypty/PHP/config.php';
@@ -111,8 +114,11 @@ if ($result) {
 
         <div class="footerSection">
             <h3>O PROJEKCIE</h3>
-            <a href="xd" download class="footerElement footerLink">
-                dokumentacja <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
+            <a href="../Zasoby/Dokumenty/Tablix - Dokumentacja Użytkownika.pdf" download class="footerElement footerLink">
+                dokumentacja użytkownika <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
+            </a>
+            <a href="../Zasoby/Dokumenty/Tablix - Dokumentacja Techniczna.pdf" download class="footerElement footerLink">
+                dokumentacja techniczna <svg class="textSVG"><use href="../Zasoby/SVG/icons.svg#download-icon"/></svg> 
             </a>
             <br>
         </div>
