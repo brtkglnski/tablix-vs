@@ -41,14 +41,15 @@ document.addEventListener("mousemove", (event) => {
         const tableName = new URLSearchParams(window.location.search).get('table_name');
         const response = await fetch(`../Skrypty/PHP/random_records.php?table_name=${tableName}`);
         const data = await response.json();
+        const leftOptionElement = document.querySelector('.leftOption');
+        const rightOptionElement = document.querySelector('.rightOption');
 
         if (data.error) {
             console.error(data.error);
+            rightOptionElement.remove();
+            leftOptionElement.querySelector('p').innerText = data.error;
             return;
         }
-
-        const leftOptionElement = document.querySelector('.leftOption');
-        const rightOptionElement = document.querySelector('.rightOption');
 
         leftOptionElement.querySelector('p').textContent = data.left.name;
         rightOptionElement.querySelector('p').textContent = data.right.name;
